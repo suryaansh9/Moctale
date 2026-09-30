@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="CineVault - Search movies and manage your personal watchlist"
+    />
+
+    <title>CineVault - Movie Search & Watchlist</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+      <div class="nav-container">
+        <a href="#" class="logo" id="logo">
+          <span class="logo-icon">🎬</span>
+          CineVault
+        </a>
+
+        <nav class="nav-links">
+          <button class="nav-link active" id="homeBtn">Home</button>
+
+          <button class="nav-link" id="watchlistBtn">
+            Watchlist
+            <span class="watchlist-count" id="watchlistCount">0</span>
+          </button>
+        </nav>
+
+        <button
+          class="theme-btn"
+          id="themeToggle"
+          title="Toggle dark/light mode"
+        >
+          ☀️
+        </button>
+      </div>
+    </header>
+
+    <!-- ================= MAIN ================= -->
+
+    <main>
+      <!-- ================= HOME PAGE ================= -->
+
+      <section id="homePage">
+        <!-- HERO -->
+
+        <section class="hero">
+          <div class="hero-content">
+            <span class="hero-badge"> 🎥 Your Personal Movie Library </span>
+
+            <h1>
+              Discover Your Next
+              <span>Favorite Movie</span>
+            </h1>
+
+            <p>
+              Search thousands of movies, explore their details, and save the
+              ones you want to watch later.
+            </p>
+
+            <!-- SEARCH -->
+
+            <form class="search-box" id="searchForm">
+              <input
+                type="text"
+                id="searchInput"
+                placeholder="Search for a movie..."
+                autocomplete="off"
+              />
+
+              <button type="submit" class="search-btn">🔍 Search</button>
+            </form>
+          </div>
+        </section>
+
+        <!-- ================= SEARCH RESULTS ================= -->
+
+        <section class="content-section" id="searchSection">
+          <div class="section-header">
+            <div>
+              <p class="section-label">MOVIE COLLECTION</p>
+              <h2 id="resultsTitle">Popular Movies</h2>
+            </div>
+
+            <div class="controls">
+              <select id="typeFilter">
+                <option value="all">All Types</option>
+                <option value="movie">Movies</option>
+                <option value="series">Series</option>
+                <option value="episode">Episodes</option>
+              </select>
+
+              <select id="sortSelect">
+                <option value="default">Sort By</option>
+                <option value="title">Title</option>
+                <option value="year">Release Year</option>
+                <option value="rating">Rating</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- STATUS -->
+
+          <div id="statusMessage" class="status-message hidden">
+            <div class="loader"></div>
+            <p>Loading movies...</p>
+          </div>
+
+          <!-- MOVIE GRID -->
+
+          <div id="movieGrid" class="movie-grid"></div>
+        </section>
+      </section>
+
+      <!-- ================= WATCHLIST PAGE ================= -->
+
+      <section id="watchlistPage" class="content-section hidden">
+        <div class="watchlist-header">
+          <div>
+            <p class="section-label">YOUR COLLECTION</p>
+
+            <h1>My Watchlist</h1>
+
+            <p class="watchlist-description">Movies you saved for later.</p>
+          </div>
+
+          <button class="secondary-btn" id="backHomeBtn">← Back to Home</button>
+        </div>
+
+        <div id="watchlistGrid" class="movie-grid"></div>
+
+        <div id="emptyWatchlist" class="empty-state hidden">
+          <div class="empty-icon">🎬</div>
+
+          <h2>No movies in your watchlist yet.</h2>
+
+          <p>Search for movies and add your favorites here.</p>
+
+          <button class="primary-btn" id="discoverBtn">Discover Movies</button>
+        </div>
+      </section>
+    </main>
+
+    <!-- ================= MOVIE DETAILS MODAL ================= -->
+
+    <div class="modal hidden" id="movieModal">
+      <div class="modal-overlay" id="modalOverlay"></div>
+
+      <div class="modal-content">
+        <button class="close-modal" id="closeModal" aria-label="Close">
+          ×
+        </button>
+
+        <div id="movieDetails">
+          <div class="details-loading">
+            <div class="loader"></div>
+            <p>Loading movie details...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= TOAST ================= -->
+
+    <div id="toast" class="toast">Movie added to watchlist!</div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
