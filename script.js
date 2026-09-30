@@ -7,7 +7,7 @@
    1. API CONFIGURATION
    ===================================================== */
 
-// Get your own API key from:
+//API key from:
 // https://www.omdbapi.com/apikey.aspx
 
 const API_KEY = "YOUR_API_KEY";
